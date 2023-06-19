@@ -54,3 +54,12 @@ console.log(fourtyFive);
 emptyBox.push(나튀어나옴[0]);
 
 console.log(emptyBox);
+
+
+function func() {
+    console.log ('hello');
+}
+
+setTimeout (()=> {
+    console.log('hello');
+},3500);

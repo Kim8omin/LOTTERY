@@ -21,10 +21,20 @@ console.log(bonus); //보너스 공
 
 const $result=document.querySelector('#result'); //html result와 연결
 
-setTimeout (()=> {const $ball=document.createElement('div');
-$ball.className='ball'; //css ball과 연결 
-$ball.textContent=sortedBalls[0] //ball 안에 내용담기 
-$result.appendChild($ball) //div 내용을 result에 붙이기 
-}, 1000); //1초 마다 
+for (let i=0;i<sortedBalls.length ;i++) {
+setTimeout (()=> {
+ const $ball=document.createElement('div');
+ $ball.className='ball'; //css ball과 연결 
+ $ball.textContent=sortedBalls[i] //ball 안에 내용담기 
+ $result.appendChild($ball) //div 내용을 result에 붙이기 
+}, 1000*(i+1)); //1초 마다 
+}
 
+const $bonus=document.querySelector('#bonus'); //html bonus와 연결
 
+setTimeout(()=>{
+ const $ball =document.createElement('div');
+ $ball.className='ball';
+ $ball.textContent=bonus;
+ $bonus.appendChild($ball);
+},7000); //보너스 숫자 추가 
