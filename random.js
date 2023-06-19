@@ -19,7 +19,7 @@ console.log(sortedBalls);
 const bonus = empty[6]
 console.log(bonus); //보너스 공 
 
-const $result=document.querySelector('#result'); //html result와 연결
+/*const $result=document.querySelector('#result'); //html result와 연결
 
 for (let i=0;i<sortedBalls.length ;i++) {
 setTimeout (()=> {
@@ -37,4 +37,25 @@ setTimeout(()=>{
  $ball.className='ball';
  $ball.textContent=bonus;
  $bonus.appendChild($ball);
-},7000); //보너스 숫자 추가 
+},7000); //보너스 숫자 추가 */
+
+//중복되는 부분은 함수로 만들고 다른 부분은 매개변수로 
+const $result=document.querySelector('#result');
+const $bonus=document.querySelector('#bonus');
+
+function draw (number,parentsTag) {
+    const $ball =document.createElement('div');
+    $ball.className='ball';
+    $ball.textContent=number;
+    parentsTag.appendChild($ball);
+}
+
+for (let i=0; i<sortedBalls.length; i++) {
+    setTimeout(()=> {
+       draw(sortedBalls[i],$result); 
+    },1000*(i+1));
+}
+
+setTimeout(()=> {
+    draw(bonus,$bonus);
+},7000);
